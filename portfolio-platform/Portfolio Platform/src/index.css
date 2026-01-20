@@ -1,115 +1,78 @@
 /* ===== CSS RESET ===== */
-/* WHY: Removes default browser margin and padding and ensures
-   consistent sizing across all elements.
-   WHAT HAPPENS IF REMOVED: Different browsers apply their own
-   default spacing, causing layout inconsistencies. */
 * {
-  box-sizing: border-box; /* Includes padding & border in width/height calculations */
-  margin: 0;              /* Removes default margin */
-  padding: 0;             /* Removes default padding */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* WHY: Defines reusable color variables for easy maintenance
-   and consistent theming across the app.
-   WHAT HAPPENS IF REMOVED: Colors must be hard-coded everywhere,
-   making the design harder to update and inconsistent. */
+/* ===== ROOT VARIABLES ===== */
 :root {
-  --primary: #6366f1;        /* Main brand color */
-  --primary-dark: #4f46e5;   /* Darker shade for hover states */
-  --bg: #f9fafb;             /* Page background color */
-  --card-bg: #ffffff;        /* Card background color */
-  --text: #111827;           /* Primary text color */
-  --muted: #6b7280;          /* Secondary/muted text color */
-  --border: #e5e7eb;         /* Border color for inputs */
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --bg: #f9fafb;
+  --card-bg: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
 }
 
-/* WHY: Sets global font, background, text color, and spacing
-   for consistent typography and readability.
-   WHAT HAPPENS IF REMOVED: Browser default fonts and spacing
-   are used, resulting in an outdated and unpolished UI. */
+/* ===== GLOBAL ===== */
 body {
   font-family: "Inter", system-ui, -apple-system, sans-serif;
   background-color: var(--bg);
   color: var(--text);
-  line-height: 1.6; /* Improves text readability */
+  line-height: 1.6;
 }
 
-/* WHY: Creates a visually distinct hero section to display
-   branding and the application title.
-   WHAT HAPPENS IF REMOVED: The header becomes plain and blends
-   with the rest of the content, reducing visual hierarchy. */
+/* ===== HEADER ===== */
 header {
-  padding: 2.5rem 1rem; /* Adds space around header content */
-  text-align: center;   /* Centers the title */
+  padding: 2.5rem 1rem;
+  text-align: center;
   background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  color: white;         /* Ensures text contrast on gradient */
+  color: white;
 }
 
-/* WHY: Controls the title size and responsiveness.
-   WHAT HAPPENS IF REMOVED: Title may be too large or too small
-   on different screen sizes. */
 header h1 {
-  font-size: clamp(1.8rem, 4vw, 2.5rem); /* Responsive font sizing */
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 700;
 }
 
-/* WHY: Centers content and limits its maximum width for better
-   readability on large screens.
-   WHAT HAPPENS IF REMOVED: Content stretches edge-to-edge,
-   making it harder to read and less professional. */
+/* ===== LAYOUT ===== */
 .container {
-  max-width: 1200px;   /* Prevents overly wide content */
-  margin: 2rem auto;   /* Centers the container */
-  padding: 0 1rem;     /* Adds horizontal padding */
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
 /* ===== SEARCH BAR ===== */
-/* WHY: Styles the search input for accessibility and modern UX.
-   WHAT HAPPENS IF REMOVED: Input appears small, unstyled,
-   and harder to interact with, especially on mobile. */
 input[type="text"] {
-  width: 100%;             /* Full width for easy interaction */
-  padding: 0.9rem 1rem;    /* Comfortable click/tap area */
-  border-radius: 10px;     /* Rounded corners for modern look */
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
   border: 1px solid var(--border);
   font-size: 1rem;
-  transition: 0.2s ease;   /* Smooth interaction effects */
+  transition: 0.2s ease;
 }
 
-/* WHY: Provides visual feedback when input is focused.
-   WHAT HAPPENS IF REMOVED: Users may not know which field
-   is active, reducing accessibility. */
 input[type="text"]:focus {
-  outline: none; /* Removes default browser outline */
+  outline: none;
   border-color: var(--primary);
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
 }
 
 /* ===== FORM ===== */
-/* WHY: Uses Flexbox to align inputs and buttons cleanly and
-   allows wrapping on smaller screens.
-   WHAT HAPPENS IF REMOVED: Inputs may stack awkwardly and
-   responsiveness is lost. */
 form {
   margin: 1.5rem 0;
   display: flex;
-  gap: 1rem;         /* Space between inputs and button */
-  flex-wrap: wrap;  /* Allows items to wrap on small screens */
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-/* WHY: Ensures inputs grow evenly and remain usable.
-   WHAT HAPPENS IF REMOVED: Inputs may shrink too much or
-   break layout on smaller screens. */
 form input {
   flex: 1;
   min-width: 240px;
 }
 
-/* ===== BUTTON ===== */
-/* WHY: Styles the call-to-action button to stand out and
-   indicate interactivity.
-   WHAT HAPPENS IF REMOVED: Button looks plain and may be
-   mistaken for regular text. */
 button {
   background: var(--primary);
   color: white;
@@ -117,22 +80,16 @@ button {
   padding: 0.9rem 1.2rem;
   border-radius: 10px;
   font-weight: 600;
-  cursor: pointer; /* Indicates clickable element */
+  cursor: pointer;
   transition: background 0.2s ease, transform 0.1s ease;
 }
 
-/* WHY: Provides hover feedback to improve user experience.
-   WHAT HAPPENS IF REMOVED: Interface feels static and less responsive. */
 button:hover {
   background: var(--primary-dark);
   transform: translateY(-1px);
 }
 
 /* ===== PROJECT GRID ===== */
-/* WHY: Uses CSS Grid to create a responsive layout that
-   automatically adjusts columns based on screen size.
-   WHAT HAPPENS IF REMOVED: Projects stack in a single column,
-   wasting screen space. */
 .project-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -141,9 +98,6 @@ button:hover {
 }
 
 /* ===== PROJECT CARD ===== */
-/* WHY: Styles each project as a card with spacing and depth.
-   WHAT HAPPENS IF REMOVED: Projects blend into the background
-   with no visual separation. */
 .card {
   background: var(--card-bg);
   border-radius: 16px;
@@ -152,29 +106,21 @@ button:hover {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* WHY: Adds hover animation to indicate interactivity.
-   WHAT HAPPENS IF REMOVED: Cards feel static and less engaging. */
 .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
 }
 
-/* WHY: Styles project title for emphasis.
-   WHAT HAPPENS IF REMOVED: Title loses visual hierarchy. */
 .card h3 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
 
-/* WHY: Styles description text to be readable but subtle.
-   WHAT HAPPENS IF REMOVED: Text may appear too dark or crowded. */
 .card p {
   color: var(--muted);
   margin-bottom: 0.75rem;
 }
 
-/* WHY: Styles category label as a badge for quick scanning.
-   WHAT HAPPENS IF REMOVED: Category text blends into description. */
 .card span {
   display: inline-block;
   font-size: 0.85rem;
@@ -185,20 +131,17 @@ button:hover {
   font-weight: 500;
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
-/* WHY: Adjusts layout for small screens to ensure usability.
-   WHAT HAPPENS IF REMOVED: Mobile layout breaks and becomes
-   difficult to use. */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 600px) {
   header {
     padding: 2rem 1rem;
   }
 
   form {
-    flex-direction: column; /* Stack inputs vertically on mobile */
+    flex-direction: column;
   }
 
   button {
-    width: 100%; /* Full-width button for easier tapping */
+    width: 100%;
   }
 }
