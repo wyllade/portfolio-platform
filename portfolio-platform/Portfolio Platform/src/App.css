@@ -1,42 +1,75 @@
+/* WHY: Styles the root element where the React app is mounted.
+   Centers the app and limits its width for better readability.
+   WHAT HAPPENS IF REMOVED:
+   - Content stretches full width
+   - Layout looks less organized */
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  max-width: 1280px;   /* Prevents content from being too wide on large screens */
+  margin: 0 auto;      /* Horizontally centers the application */
+  padding: 2rem;       /* Adds spacing around the content */
+  text-align: center;  /* Centers text by default */
 }
 
+/* WHY: Styles logo images (used in default Vite template).
+   WHAT HAPPENS IF REMOVED:
+   - Logo appears unstyled
+   - No visual emphasis */
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  height: 6em;        /* Sets consistent logo size */
+  padding: 1.5em;     /* Adds space around logo */
+  will-change: filter;/* Optimizes performance for hover effect */
+  transition: filter 300ms; /* Smooth hover animation */
 }
+
+/* WHY: Adds a glow effect when hovering over the logo.
+   WHAT HAPPENS IF REMOVED:
+   - Hover interaction disappears
+   - UI feels less interactive */
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
+/* WHY: Applies a React-specific hover effect for branding.
+   WHAT HAPPENS IF REMOVED:
+   - React logo loses its unique styling */
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+/* WHY: Defines a spinning animation used by the logo.
+   WHAT HAPPENS IF REMOVED:
+   - Animation cannot be referenced
+   - Logo remains static */
 @keyframes logo-spin {
   from {
-    transform: rotate(0deg);
+    transform: rotate(0deg); /* Starting rotation */
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(360deg); /* Full rotation */
   }
 }
 
+/* WHY: Respects user accessibility preferences for motion.
+   WHAT HAPPENS IF REMOVED:
+   - Animation runs even for users who prefer reduced motion */
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
+    /* Infinite slow rotation */
   }
 }
 
+/* WHY: Adds padding to card elements (default template usage).
+   WHAT HAPPENS IF REMOVED:
+   - Card content appears cramped */
 .card {
   padding: 2em;
 }
 
+/* WHY: Styles helper text for documentation links.
+   WHAT HAPPENS IF REMOVED:
+   - Text appears same as main content
+   - Reduced visual hierarchy */
 .read-the-docs {
   color: #888;
 }
